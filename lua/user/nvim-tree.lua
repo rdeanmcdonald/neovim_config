@@ -109,6 +109,11 @@ nvim_tree.setup {
       },
     },
   },
+  renderer = {
+    icons = {
+      git_placement = "signcolumn"
+    }
+  }
 
 --  unknown options as of 22.05
 --
