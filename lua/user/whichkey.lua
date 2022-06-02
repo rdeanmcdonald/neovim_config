@@ -85,9 +85,8 @@ local mappings = {
     "Buffers",
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  ["d"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -95,7 +94,13 @@ local mappings = {
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-
+  w = {
+    name = "Window",
+    h = { "<C-w>h", "Left" },
+    j = { "<C-w>j", "Down" },
+    k = { "<C-w>k", "Up" },
+    l = { "<C-w>l", "Right" },
+  },
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -104,13 +109,11 @@ local mappings = {
     S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
-
   g = {
     name = "Git",
     s = { "<cmd>Neogit<cr>", "neogit status" },
     c = { "<cmd>Telescope git_branches<cr>", "checkout" },
   },
-
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -152,8 +155,11 @@ local mappings = {
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
+    p = { "<cmd>lua require('spectre').open_visual()<CR>", "Project in panel" },
+    w = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Project in panel" },
+    f = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current file" },
+    F = { "<cmd>Telescope live_grep<cr>", "All files" },
   },
-
   t = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
