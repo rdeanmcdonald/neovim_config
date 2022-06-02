@@ -78,6 +78,15 @@ local opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
+local opts_x = {
+  mode = "x", -- NORMAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["b"] = {
@@ -170,7 +179,21 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
+  r = {
+    name = "Replace",
+    r = { ":%s///g<Left><Left>", "replace all" },
+    c = { ":%s///gc<Left><Left><Left>", "replace and confirm" },
+  },
+}
+
+local mappings_x = {
+  r = {
+    name = "Replace",
+    r = { ":s///g<Left><Left>", "replace all" },
+    c = { ":s///gc<Left><Left><Left>", "replace and confirm" },
+  },
 }
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
+which_key.register(mappings_x, opts_x)
