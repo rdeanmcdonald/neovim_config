@@ -107,7 +107,8 @@ local mappings = {
 
   g = {
     name = "Git",
-    s = { "<cmd>Neogit<cr>", "neogit" },
+    s = { "<cmd>Neogit<cr>", "neogit status" },
+    c = { "<cmd>Telescope git_branches<cr>", "checkout" },
   },
 
   l = {
