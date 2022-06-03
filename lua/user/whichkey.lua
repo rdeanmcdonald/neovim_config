@@ -164,8 +164,6 @@ local mappings = {
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
-    p = { "<cmd>lua require('spectre').open_visual()<CR>", "Project in panel" },
-    w = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Project in panel" },
     f = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current file" },
     F = { "<cmd>Telescope live_grep<cr>", "All files" },
   },
@@ -183,6 +181,7 @@ local mappings = {
     name = "Replace",
     r = { ":%s///g<Left><Left>", "replace all" },
     c = { ":%s///gc<Left><Left><Left>", "replace and confirm" },
+    R = { ":%s///gc<Left><Left><Left>", "replace and confirm" },
   },
 }
 
