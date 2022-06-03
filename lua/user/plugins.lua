@@ -62,6 +62,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+  use { "saecki/crates.nvim", requires = "nvim-lua/plenary.nvim" } -- rust crate snippets
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -73,12 +74,11 @@ return packer.startup(function(use)
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "MunifTanjim/eslint.nvim" -- javascript eslint
-  use { -- diagnostics
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-  }
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" } -- diagnostics
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
+  use { "nvim-telescope/telescope.nvim", requires = "nvim-telescope/telescope-live-grep-raw.nvim" }
+  -- use "itchyny/vim-qfedit" -- quickfix edit
+  use "gabrielpoca/replacer.nvim" -- quickfix as text so can use normal search replace
 
   -- Treesitter
   use {
@@ -89,7 +89,7 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

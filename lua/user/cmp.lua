@@ -8,6 +8,12 @@ if not snip_status_ok then
   return
 end
 
+local crates_status_ok, crates = pcall(require, "crates")
+if not crates_status_ok then
+  return
+end
+crates.setup()
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -114,6 +120,7 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
+    { name = "crates" }
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

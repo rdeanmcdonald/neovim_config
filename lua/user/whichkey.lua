@@ -96,20 +96,14 @@ local mappings = {
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["d"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  ["h"] = { "<cmd>lua require('replacer').run()<CR>", "Quickfix replacer" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
   },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["F"] = { "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<cr>", "Find Text" },
+  ["*"] = { "<cmd>lua require('telescope.builtin').grep_string()<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-  w = {
-    name = "Window",
-    h = { "<C-w>h", "Left" },
-    j = { "<C-w>j", "Down" },
-    k = { "<C-w>k", "Up" },
-    l = { "<C-w>l", "Right" },
-  },
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
