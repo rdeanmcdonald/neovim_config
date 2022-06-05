@@ -29,12 +29,12 @@ local options = {
   relativenumber = false,                  -- set relative numbered lines
   numberwidth = 4,                         -- set number column width to 2 {default 4}
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-  wrap = false,                            -- display lines as one long line
+  wrap = true,                             -- display lines as one long line
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications,
   foldmethod = 'expr',
-  foldexpr = 'nvim_treesitter#foldexpr()'
+  foldexpr = 'nvim_treesitter#foldexpr()',
 }
 
 vim.opt.shortmess:append "c"
@@ -46,3 +46,7 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.cmd [[set textwidth=80]]
+vim.cmd [[set colorcolumn=+1]]
+vim.cmd [[set colorcolumn=80]]
+vim.cmd [[highlight ColorColumn guibg=#181818]]

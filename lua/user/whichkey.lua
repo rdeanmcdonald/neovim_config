@@ -97,13 +97,17 @@ local mappings = {
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["d"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>lua require('replacer').run()<CR>", "Quickfix replacer" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<cr>", "Find Text" },
   ["*"] = { "<cmd>lua require('telescope.builtin').grep_string()<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  f = {
+    name = "Find",
+    f = {
+      "Files",
+      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    },
+    g = { "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<cr>", "Live grep" },
+    s = { "<cmd>lua require('telescope').extensions.file_browser.file_browser( { path = vim.fn.expand('%:p:h') } )<cr>", "Finder" },
+  },
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },

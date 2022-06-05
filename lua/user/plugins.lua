@@ -53,7 +53,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  use {'dracula/vim', as = 'dracula'}
+  use {'Mofiqul/dracula.nvim', as = 'dracula'}
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -75,10 +75,14 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "MunifTanjim/eslint.nvim" -- javascript eslint
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" } -- diagnostics
+
   -- Telescope
   use { "nvim-telescope/telescope.nvim", requires = "nvim-telescope/telescope-live-grep-raw.nvim" }
   -- use "itchyny/vim-qfedit" -- quickfix edit
   use "gabrielpoca/replacer.nvim" -- quickfix as text so can use normal search replace
+  -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { "nvim-telescope/telescope-file-browser.nvim" }
 
   -- Treesitter
   use {
@@ -90,6 +94,9 @@ return packer.startup(function(use)
   -- Git
   use "lewis6991/gitsigns.nvim"
   use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
+
+  -- Tmux
+  use "preservim/vimux"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
