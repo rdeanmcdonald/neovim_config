@@ -1,3 +1,21 @@
+move_buffer_right = function()
+  -- inspired from https://github.com/theHamsta/nvim-dap/blob/172118380aded1f1535841a65242bcbdeb460dfd/lua/dap.lua
+  -- For now, just splits the buffer to the right
+  local wins = vim.api.nvim_tabpage_list_wins(0)
+  local cur_win = vim.api.nvim_get_current_win()
+  if table.getn(wins) > 1 then
+    -- eventually, may want to do some stuff with tagpage's and moving buffers
+    -- back and forth between left and right tabpage's
+
+    -- print(cur_win)
+    -- for _, win in pairs(wins) do
+    --   print(win)
+    -- end
+  else
+    vim.cmd('vsplit')
+  end
+end
+
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
   return
@@ -89,16 +107,22 @@ local opts_x = {
 
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
-  },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["d"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>lua require('replacer').run()<CR>", "Quickfix replacer" },
   ["*"] = { "<cmd>lua require('telescope.builtin').grep_string()<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  b = {
+    name = "Buffer",
+    b = {
+      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Search buffers",
+    },
+    h = { "<C-w>t<C-w>K<cr>", "Make horizontal" },
+    v = { "<C-w>t<C-w>H<cr>", "Make vertical" },
+    l = { "<cmd>lua move_buffer_right()<cr>", "Move buffer right" }
+  },
   f = {
     name = "Find",
     f = {
