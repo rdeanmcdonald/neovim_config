@@ -62,6 +62,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
   use { "saecki/crates.nvim", requires = "nvim-lua/plenary.nvim" } -- rust crate snippets
 
   -- snippets
@@ -73,7 +74,6 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use "MunifTanjim/eslint.nvim" -- javascript eslint
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" } -- diagnostics
 
   -- Telescope
@@ -81,7 +81,8 @@ return packer.startup(function(use)
   -- use "itchyny/vim-qfedit" -- quickfix edit
   use "gabrielpoca/replacer.nvim" -- quickfix as text so can use normal search replace
   -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { "nvim-telescope/telescope-fzf-native.nvim", run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" }
+  -- use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
   use { "nvim-telescope/telescope-file-browser.nvim" }
 
   -- Treesitter
@@ -97,6 +98,9 @@ return packer.startup(function(use)
 
   -- Tmux
   use "preservim/vimux"
+
+  -- Scala
+  use { "scalameta/nvim-metals", requires = { "nvim-lua/plenary.nvim" } }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

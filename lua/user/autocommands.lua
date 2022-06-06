@@ -28,11 +28,6 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
-
-  augroup _lsp
-    autocmd!
-    autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
-  augroup end
 ]]
 
 -- Autoformat
@@ -40,3 +35,10 @@ vim.cmd [[
 --   autocmd!
 --   autocmd BufWritePre * lua vim.lsp.buf.formatting()
 -- augroup end
+
+
+  -- augroup _lsp
+  --   autocmd!
+  --   autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
+  -- augroup end
+  --

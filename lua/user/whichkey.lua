@@ -102,8 +102,8 @@ local mappings = {
   f = {
     name = "Find",
     f = {
-      "Files",
       "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Files",
     },
     g = { "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<cr>", "Live grep" },
     s = { "<cmd>lua require('telescope').extensions.file_browser.file_browser( { path = vim.fn.expand('%:p:h') } )<cr>", "Finder" },
@@ -132,7 +132,7 @@ local mappings = {
       "<cmd>Telescope lsp_workspace_diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {

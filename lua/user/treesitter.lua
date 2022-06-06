@@ -10,9 +10,20 @@ configs.setup {
     "rust",
     "python",
     "javascript",
+    "typescript",
+    "tsx",
     "scala",
     "java",
-    "bash"
+    "bash",
+    "json",
+    "html",
+    "go",
+    "erlang",
+    "elixir",
+    "eex",
+    "dockerfile",
+    "css",
+    "c_sharp",
   }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing

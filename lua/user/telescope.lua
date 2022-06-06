@@ -112,4 +112,6 @@ telescope.setup {
   },
 }
 
--- telescope.load_extension('fzf')
+--telescope.load_extension('fzf')
+telescope.load_extension('live_grep_raw')
+telescope.load_extension('file_browser')
